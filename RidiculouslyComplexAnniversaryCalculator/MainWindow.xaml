@@ -1,0 +1,94 @@
+﻿<Window x:Class="RidiculouslyComplexAnniversaryCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RidiculouslyComplexAnniversaryCalculator"
+        mc:Ignorable="d"
+        Background="Gray"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource MasterWindow}"
+        Title="Ridiculously Complex Anniversary Calculator" Height="500" Width="1400">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close"
+                        Executed="CloseCommandHandler"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top"
+              Margin="50,50,50,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ComboBox 
+                Grid.Column="0"
+                FontSize="46"
+                Name="CBEmployeeList" SelectionChanged="CBEmployee_SelectionChanged"/>
+            <Label 
+                Name="lbStartDate"
+                Grid.Column="1"
+                Content="Start Date:"/>
+            <Label
+                Name="lbAnnDate"
+                Grid.Column="1"
+                Grid.Row="1"
+                Content="Anniversary Date:"
+                />
+            <Label 
+                Grid.Column="0"
+                Grid.Row="3"
+                Content="Year:"
+                Margin="2"
+                HorizontalAlignment="Left"/>
+            <ComboBox Name="YearComboBox"
+                Grid.Column="0"
+                Grid.Row="3"
+                FontSize="46"
+                HorizontalAlignment="Right"
+                Width="500"
+                HorizontalContentAlignment="Center">
+            </ComboBox>
+            <Label 
+                Grid.Row="3"
+                Grid.Column="1"
+                Content="Honor this employee:"
+                HorizontalAlignment="Left"/>
+            <Label 
+                Grid.Row="3"
+                Grid.Column="1"
+                Name="lbHonor"
+                Width="150"
+                Background="White"
+                HorizontalContentAlignment="Center"
+                Margin="0,0,30,0"
+                HorizontalAlignment="Right">
+            </Label>
+        </Grid>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button
+                Margin="5"
+                Name="btnCalc"
+                Content="Calculate"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="46" 
+                Click="Calculate_Click"/>
+            <Button
+                Margin="5"
+                Name="Override"
+                IsEnabled="false"
+                Content="Override"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="46" 
+                Click="Override_Click"/>
+        </StackPanel>
+        
+    </DockPanel>
+</Window>
